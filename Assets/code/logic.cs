@@ -9,6 +9,7 @@ public class logic : MonoBehaviour
     public Camera c3;
 
     private bool cam1 = false;
+    public GameObject thrust;
     void Start()
     {
         
@@ -20,6 +21,12 @@ public class logic : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C)){
             switchCamera();
         }
+        if(cam1){
+            thrust.SetActive(true);
+        }
+        else{
+            thrust.SetActive(false);
+        }
     }
 
     private void switchCamera(){
@@ -28,10 +35,11 @@ public class logic : MonoBehaviour
             
         }
         else{
-            cam1 = false;
+            cam1 = true;
         }
 
         c1.enabled = !c1.enabled;
         c3.enabled = !c3.enabled;
+        
     }
 }

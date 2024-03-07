@@ -9,6 +9,7 @@ public class lander : MonoBehaviour
     public float jump = 2;
     private bool left = false;
     private bool right = false;
+    public ParticleSystem thrust;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +33,16 @@ public class lander : MonoBehaviour
         if (press)
         {
             myrigidbody.AddForce(transform.up*jump);
+            thrust.Play();
 
         }
+        else if (press  == false){
+            thrust.Stop();
+        }
+
+
+
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             left = true;
